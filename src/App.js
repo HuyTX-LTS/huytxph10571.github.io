@@ -1,4 +1,5 @@
 import React from "react";
+import { Routes, Route, Link } from 'react-router-dom';
 import Radio from "./components/Radio";
 import CheckBox from "./components/Checkbox";
 import ToDoList from "./todo_list/ToDoList";
@@ -7,7 +8,10 @@ import Timer from "./components/useEffect/Timer";
 import ChooseImg from "./components/useEffect/ChooseImg";
 import Comments from "./components/useEffect/Comments";
 import TodoApp from "./components/useReducer/TodoApp";
-
+import ContentContext from "./components/useContext/ContentContext";
+import Home from "./pages/Home";
+import News from "./pages/News";
+import Context from "./pages/Context";
 
 const gifts = [
   '3 củ',
@@ -86,6 +90,28 @@ function App() {
       <ChooseImg />
       {/* <Comments /> */}
       <TodoApp />
+      <button>Toggle theme</button>
+      <ContentContext />
+      <h1>React router</h1>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/news">News</Link>
+          </li>
+          <li>
+            <Link to="/context">Context</Link>
+          </li>
+        </ul>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/news" element={<News />} />
+        <Route path="/context" element={<Context />} />
+      </Routes>
     </div>
   );
 }
